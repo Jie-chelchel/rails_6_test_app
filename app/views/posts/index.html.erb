@@ -5,6 +5,7 @@
       <th>Title</th>
       <th>Description</th>
       <th>Name</th>
+      <th colspan=3 >Actions </th>
     </tr>
   </thead>
 
@@ -14,10 +15,13 @@
       <td><%= post.title %></td>
       <td><%= post.description %></td>
       <td><%= post.name %></td>
-      <td><%= link_to "Show", post_path(post.id) %> </td>
-      <td><%= link_to "Delete", post_path(post.id), method: :delete %> </td>
+      <td><%= link_to "Show", post_path(post.id) %> </td>  
+      <td><%= link_to "Edit", edit_post_path(post.id) %> </td>  
+      <td><%= link_to "Delete", post_path(post.id), method: :delete, data: {confirm: "Are you sure?"}%> </td>
     </tr>
   <% end %>
   </tbody>
-
 </table>
+
+<%= link_to "Create Post", new_post_path %>
+<%= link_to "Home Page", root_path %>
