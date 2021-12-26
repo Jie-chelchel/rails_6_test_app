@@ -1,5 +1,55 @@
 @import "bootstrap/dist/css/bootstrap";
 
 .navbar {
-  background-color: #fdf6ea !important;
+  background-color: black !important;
+}
+
+#logo {
+  color: white;
+}
+
+.navbar-brand:hover {
+  background-color: lightgray !important;
+}
+
+.nav-item:hover {
+  background-color: lightgray !important;
+}
+
+.nav-link {
+  color: white !important;
+}
+.nav-link:hover {
+  background-color: lightgray !important;
+}
+#navbarSupportedContent {
+  color: white !important;
+}
+#home-container {
+  margin-top: 20px;
+}
+
+.jumbotron {
+  background-image: asset-url("home.jpg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white;
+}
+
+html,
+body {
+  height: 100%;
+  background: #62676d;
+  background: linear-gradient(to right, #62676d, #343638);
+}
+
+#page-content {
+  flex: 1 0 auto;
+}
+
+/* Other Classes for Page Styling */
+
+.sticky-footer {
+  flex-shrink: none;
 }
