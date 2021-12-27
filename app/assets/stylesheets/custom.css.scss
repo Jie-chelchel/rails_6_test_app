@@ -1,11 +1,16 @@
 @import "bootstrap/dist/css/bootstrap";
 
 .navbar {
-  background-color: black !important;
+  background-color: rgb(158, 150, 150) !important;
 }
 
 #logo {
-  color: white;
+  float: left;
+  font-size: 1.7em;
+  color: black;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  font-weight: bold;
 }
 
 .navbar-brand:hover {
@@ -17,7 +22,7 @@
 }
 
 .nav-link {
-  color: white !important;
+  color: black !important;
 }
 .nav-link:hover {
   background-color: lightgray !important;
@@ -35,17 +40,19 @@
   background-repeat: no-repeat;
   background-size: cover;
   color: white;
+  height: 30rem;
 }
 
 html,
 body {
   height: 100%;
-  background: #62676d;
-  background: linear-gradient(to right, #62676d, #343638);
+  //   background: #62676d;
+  //   background: linear-gradient(to right, #62676d, #343638);
 }
 
 #page-content {
   flex: 1 0 auto;
+  background-color: lightgray;
 }
 
 /* Other Classes for Page Styling */
