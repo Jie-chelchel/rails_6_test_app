@@ -6,6 +6,7 @@
       <div class="card text-center shadow mb-5 bg-white rounded">
         <div class="card-header font-italic">
             <strong> Posted By: </strong><%= @post.user.username if @post.user %>
+            <%= link_to gravatar_for(@post.user, size:50), user_path(@post.user)  %>
         </div>
         <div class="card-body">
             
