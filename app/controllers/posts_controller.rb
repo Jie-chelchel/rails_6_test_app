@@ -5,7 +5,8 @@ class PostsController < ApplicationController
   end
 
   def index  
-    @posts = Post.all
+    @posts = Post.paginate(page: params[:page], per_page: 4)
+
   end
 
   def new  
