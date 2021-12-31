@@ -11,7 +11,7 @@
         <div class="card-body">
             
             <div class="card-text text-left"><%= simple_format(@post.description) %></div>
-              <% if logged_in? && @post.user == current_user %>
+              <% if logged_in? && (@post.user == current_user || current_user.admin) %>
                 <button type="button" class="btn btn-outline-info btn-sm"><%= link_to "Edit", edit_post_path(@post) %></button>
                 <button type="button" class="btn btn-outline-danger btn-sm"><%= link_to "Delete", post_path(@post), method: :delete, data: {confirm: "Are you sure? "} %></button>  
               <% end %>

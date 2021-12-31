@@ -56,7 +56,7 @@ class PostsController < ApplicationController
   end
 
   def require_same_user
-    if current_user != @post.user
+    if current_user != @post.user and !current_user.admin
       flash[:alert] = " You mast be edit or delete your ow article"
       redirect_to post_path
     end

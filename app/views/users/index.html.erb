@@ -17,9 +17,15 @@
               <p class="card-text"><%= pluralize(user.posts.count, "post") %> </p>
 
               <button type="button" class="btn btn-outline-primary btn-sm"><%= link_to "View profile", user_path(user) %></button>
-              <% if logged_in? && user == current_user %>
-                <button type="button" class="btn btn-outline-info btn-sm"><%= link_to "Edit profile", edit_user_path(user) %></button>
-              <% end %>
+              <% if logged_in? %>
+                <% if user == current_user %>
+                  <button type="button" class="btn btn-outline-info btn-sm"><%= link_to "Edit profile", edit_user_path(user) %></button>
+                <% end %>
+                <% if current_user.admin %>
+                  <button type="button" class="btn btn-outline-info btn-sm"><%= link_to "Delete user", user_path(user), method: :delete,
+                  data: {confirm: "Are you sure?"} %></button>
+                <% end %>
+              <% end%>
               </div>
               <div class="card-footer text-muted">
               <small>Joined <%= time_ago_in_words( user.created_at) %> ago, edited <%= time_ago_in_words(user.updated_at) %> ago
