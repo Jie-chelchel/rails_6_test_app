@@ -12,17 +12,18 @@
             <%= link_to user.username, user_path(user)%>
             </div>
             <div class="card-body">
-            <h5 class="card-title">
-            <%= link_to gravatar_for(user, size:120), user_path(user) %></h5>
-            <p class="card-text"><%= pluralize(user.posts.count, "post") %> </p>
+              <h5 class="card-title">
+              <%= link_to gravatar_for(user, size:120), user_path(user) %></h5>
+              <p class="card-text"><%= pluralize(user.posts.count, "post") %> </p>
 
-            <button type="button" class="btn btn-outline-primary btn-sm"><%= link_to "View profile", user_path(user) %></button>
-            <button type="button" class="btn btn-outline-info btn-sm"><%= link_to "Edit profile", edit_user_path(user) %></button>
-
-            </div>
-            <div class="card-footer text-muted">
-            <small>Joined <%= time_ago_in_words( user.created_at) %> ago, edited <%= time_ago_in_words(user.updated_at) %> ago
-            </small>
+              <button type="button" class="btn btn-outline-primary btn-sm"><%= link_to "View profile", user_path(user) %></button>
+              <% if logged_in? && user == current_user %>
+                <button type="button" class="btn btn-outline-info btn-sm"><%= link_to "Edit profile", edit_user_path(user) %></button>
+              <% end %>
+              </div>
+              <div class="card-footer text-muted">
+              <small>Joined <%= time_ago_in_words( user.created_at) %> ago, edited <%= time_ago_in_words(user.updated_at) %> ago
+              </small>
             </div>
         </div>
       </div>

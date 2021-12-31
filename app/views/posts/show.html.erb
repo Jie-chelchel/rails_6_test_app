@@ -11,10 +11,10 @@
         <div class="card-body">
             
             <div class="card-text text-left"><%= simple_format(@post.description) %></div>
-
-            <button type="button" class="btn btn-outline-info btn-sm"><%= link_to "Edit", edit_post_path(@post) %></button>
-            <button type="button" class="btn btn-outline-danger btn-sm"><%= link_to "Delete", post_path(@post), method: :delete, data: {confirm: "Are you sure? "} %></button>  
-
+              <% if logged_in? && @post.user == current_user %>
+                <button type="button" class="btn btn-outline-info btn-sm"><%= link_to "Edit", edit_post_path(@post) %></button>
+                <button type="button" class="btn btn-outline-danger btn-sm"><%= link_to "Delete", post_path(@post), method: :delete, data: {confirm: "Are you sure? "} %></button>  
+              <% end %>
             </div>
             <div class="card-footer text-muted">
             <small>Created <%= time_ago_in_words( @post.created_at) %> ago, edited <%= time_ago_in_words(@post.updated_at) %> ago</small>
