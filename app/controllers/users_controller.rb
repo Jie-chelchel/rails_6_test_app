@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update]
+  before_action :set_user, only: [:show, :edit, :update, :destroy]
   before_action :require_user, only: [:edit, :update]
   before_action :require_same_user, only: [:edit, :update]
 
@@ -38,7 +38,12 @@ class UsersController < ApplicationController
     @users = User.paginate(page: params[:page], per_page: 4)
   end
 
-
+  def destroy
+    @user.destroy
+    session[:user_id] = nil
+    flash[:notic] = " Account and associated posts have been deleted"
+    redirect_to posts_path  
+  end
 
   private
   def user_params
